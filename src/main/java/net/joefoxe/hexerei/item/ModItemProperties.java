@@ -40,8 +40,8 @@ public class ModItemProperties {
                     level = (ClientLevel)entity.level;
                 }
 
-                float viewRot = Mth.wrapDegrees(p_174667_.getViewYRot(1.0f));
-                float rotationFromPlayer = (float) (Math.atan2(((DowsingRodItem)itemStack.getItem()).nearestPos.getZ() - p_174667_.getZ() + 0.5f, ((DowsingRodItem)itemStack.getItem()).nearestPos.getX() - p_174667_.getX() + 0.5f) * 180 / Math.PI);
+                float viewRot = Mth.wrapDegrees(entity.getViewYRot(1.0f));
+                float rotationFromPlayer = (float) (Math.atan2(((DowsingRodItem)itemStack.getItem()).nearestPos.getZ() - entity.getZ() + 0.5f, ((DowsingRodItem)itemStack.getItem()).nearestPos.getX() - entity.getX() + 0.5f) * 180 / Math.PI);
                 if (Math.abs(angleDifference(Mth.wrapDegrees(viewRot + 90), rotationFromPlayer)) < 15) {
                     return 0.0f;
                 }else if (Math.abs(angleDifference(Mth.wrapDegrees(viewRot + 90), rotationFromPlayer)) < 45) {

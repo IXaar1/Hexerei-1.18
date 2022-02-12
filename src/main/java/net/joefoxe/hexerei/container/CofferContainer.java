@@ -1,6 +1,7 @@
 package net.joefoxe.hexerei.container;
 
 import net.joefoxe.hexerei.block.ModBlocks;
+import net.joefoxe.hexerei.block.custom.Coffer;
 import net.joefoxe.hexerei.tileentity.CofferTile;
 import net.joefoxe.hexerei.util.HexereiTags;
 import net.minecraft.core.BlockPos;
@@ -9,6 +10,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.sounds.SoundEvents;
@@ -47,7 +50,7 @@ public class CofferContainer extends AbstractContainerMenu {
                             addSlot(new SlotItemHandler(h, k, 15 + (21 * j), 18 + 21 * i) {
                                 @Override
                                 public boolean mayPlace(@NotNull ItemStack stack) {
-                                    return !stack.is(HexereiTags.Items.SHULKER_BOXES);  //prevent shulker boxes to be placed inside
+                                    return !(Block.byItem(stack.getItem()) instanceof ShulkerBoxBlock) && !(Block.byItem(stack.getItem()) instanceof Coffer);  //prevent shulker boxes and coffers to be placed inside
                                 }
                             });
                             k++;
